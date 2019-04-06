@@ -3,5 +3,6 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
     return head(:forbidden) unless @user.authenticate(params[:password])
     session[:user_id] = @user.id
+    redirect_to '/home'
   end
 end
