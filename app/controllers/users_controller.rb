@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   def create
-    User.create(user_params)
-    redirect_to '/home'
+    if params[:user][:password] != params[:user][:password_confirmation]
+      redirect_to '/users/new'
+    else
+      User.create(user_params)
+      redirect_to '/home'
+    end
   end
   def home
   end
