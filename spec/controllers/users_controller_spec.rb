@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
 
-  let(:steven) {{name: 'Steven',
+  let(:steven) {{username: 'Steven',
             password: 'un1verse',
             password_confirmation: 'un1verse'}}
 
