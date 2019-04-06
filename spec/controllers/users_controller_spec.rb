@@ -8,7 +8,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'create' do
     it "creates a new user" do
-      post :create, user: steven
+      post :create, params: {user: steven}
       expect(User.last.name).to eq('Steven')
     end
 
@@ -18,8 +18,8 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "sets your password if the confirmation matches" do
-      post :create, user: steven
-      expect(User.last.authenticate(steven[:password])).to eq(User.last) 
+      post :create, params: {user: steven}
+      expect(User.last.authenticate(steven[:password])).to eq(User.last)
     end
 
     it "redirects you if your password and confirmation don't match" do
