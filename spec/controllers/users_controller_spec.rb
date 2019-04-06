@@ -13,7 +13,7 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "logs you in" do
-      post :create, user: steven
+      post :create, params: {user: steven}
       expect(session[:user_id]).to eq(User.last.id)
     end
 
