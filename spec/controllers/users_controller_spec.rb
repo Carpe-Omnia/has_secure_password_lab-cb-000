@@ -14,7 +14,7 @@ RSpec.describe UsersController, type: :controller do
 
     it "logs you in" do
       post :create, params: {user: steven}
-      #expect(session[:user_id]).to eq(User.last.id)
+      expect(session[:user_id]).to eq(User.last.id)
     end
 
     it "sets your password if the confirmation matches" do
