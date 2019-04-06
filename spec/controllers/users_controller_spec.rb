@@ -24,7 +24,7 @@ RSpec.describe UsersController, type: :controller do
 
     it "redirects you if your password and confirmation don't match" do
       typo = steven.merge(password_confirmation: 'uni111verse')
-      post :create, user: typo
+      post :create, params: {user: typo}
       expect(response).to redirect_to(controller: 'users', action: 'new')
     end
   end
